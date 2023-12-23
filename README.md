@@ -1,2 +1,1 @@
-# bash_scripts
-bash script drafts
+# bash script drafts
