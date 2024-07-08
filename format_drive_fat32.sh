@@ -7,15 +7,16 @@ check_disks() {
 
 # format the specified flash drive to fat32
 format_drive_fat32() {
+    # Check if the script is run as root
+    if [ "$(id -u)" != "0" ]; then
+        echo "User is not root"
+        exit 1
+    fi
+
     FLASH_DRIVE="$1"
 
     if [ -z "$FLASH_DRIVE" ]; then
         echo "No flash drive specified"
-        exit 1
-    fi
-
-    if [ "$(id -u)" != "0" ]; then
-        echo "User is not root"
         exit 1
     fi
 
